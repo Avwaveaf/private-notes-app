@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { NotesContext } from "../contexts/notes-data.context";
+import "./search-notes.style.css";
 
 export const SearchNotes = () => {
   const { notesData, setFilteredNotes } = useContext(NotesContext);

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { initialData } from "../../utils";
 
 export const NotesContext = createContext({
@@ -6,13 +6,31 @@ export const NotesContext = createContext({
   setNotesData: () => {},
   filteredNotes: [],
   setFilteredNotes: () => {},
+  newNote: [],
+  setNewNote: () => {},
 });
 
 export const NotesContextProvider = ({ children }) => {
   const [notesData, setNotesData] = useState(initialData);
-  const [filteredNotes, setFilteredNotes] = useState(notesData);
+  const [newNote, setNewNote] = useState(notesData);
+  const [filteredNotes, setFilteredNotes] = useState(newNote);
 
-  const value = { notesData, setNotesData, setFilteredNotes, filteredNotes };
+  useEffect(() => {
+    setNotesData(newNote);
+  }, [newNote]);
+
+  useEffect(() => {
+    setFilteredNotes(notesData);
+  }, [notesData]);
+
+  const value = {
+    notesData,
+    setNotesData,
+    setFilteredNotes,
+    filteredNotes,
+    newNote,
+    setNewNote,
+  };
   return (
     <NotesContext.Provider value={value}>{children}</NotesContext.Provider>
   );

@@ -1,0 +1,14 @@
+.search-notes-container {
+  width: 300px;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+}
+.search-notes-container input {
+  width: 100%;
+  outline: none;
+  border: none;
+}
