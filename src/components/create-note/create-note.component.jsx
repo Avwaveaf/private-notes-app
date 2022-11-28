@@ -8,7 +8,7 @@ export const CreateNote = () => {
   const [limit, setLimit] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const titleChangeHandler = (event) => {
-    if (event.target.value.length <= 30) {
+    if (event.target.value.length <= 50) {
       setLimit(false);
 
       setCharCount(event.target.value.length);
