@@ -3,9 +3,24 @@ import "./private-notes-app.style.css";
 export const PrivateNotesApp = ({ data }) => {
   return (
     <div className="notes-container">
-      {data.map((e) => {
-        return <NotesCard noteData={e} key={e.id} />;
-      })}
+      <h2>Notes list</h2>
+      <div className="notes-child-container">
+        {data.map((e) => {
+          if (!e.archived) {
+            return <NotesCard noteData={e} key={e.id} />;
+          }
+          return "";
+        })}
+      </div>
+      <h2>Archived list</h2>
+      <div className="notes-child-container">
+        {data.map((e) => {
+          if (e.archived) {
+            return <NotesCard noteData={e} key={e.id} />;
+          }
+          return "";
+        })}
+      </div>
     </div>
   );
 };

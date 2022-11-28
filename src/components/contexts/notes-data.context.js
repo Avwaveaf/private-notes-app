@@ -30,6 +30,7 @@ export const NotesContextProvider = ({ children }) => {
     filteredNotes,
     newNote,
     setNewNote,
+
   };
   return (
     <NotesContext.Provider value={value}>{children}</NotesContext.Provider>

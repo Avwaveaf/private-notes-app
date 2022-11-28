@@ -1,0 +1,12 @@
+.create-new-note-form-container {
+  width: 70%;
+  margin: 30px auto;
+  padding: 30px;
+  border: 2px solid gray;
+  border-radius: 25px;
+}
+
+.notes-input {
+  display: flex;
+  flex-direction: column;
+}

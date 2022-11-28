@@ -7,6 +7,7 @@ import { CreateNote } from "./components/create-note/create-note.component";
 
 function App() {
   const { filteredNotes } = useContext(NotesContext);
+
   return (
     <div className="App">
       <SearchNotes />

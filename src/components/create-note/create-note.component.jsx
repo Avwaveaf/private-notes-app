@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { NotesContext } from "../contexts/notes-data.context";
+import "./create-note.style.css";
+
 export const CreateNote = () => {
   const [addNote, setAddNote] = useState({ title: "", body: "" });
-  const { filteredNotes, setFilteredNotes, setNewNote } =
-    useContext(NotesContext);
+  const { filteredNotes, setNewNote } = useContext(NotesContext);
   const titleChangeHandler = (event) => {
     setAddNote(() => {
       return {
@@ -35,9 +36,9 @@ export const CreateNote = () => {
   };
 
   return (
-    <div>
+    <div className="create-new-note-form-container">
       <form
-        className="contact-input"
+        className="notes-input"
         onSubmit={(event) => {
           onSubmitHandler(event);
         }}
@@ -58,7 +59,7 @@ export const CreateNote = () => {
             bodyChangeHandler(event);
           }}
         />
-        <button type="submit">Add contact</button>
+        <button type="submit">Add New Note</button>
       </form>
     </div>
   );
