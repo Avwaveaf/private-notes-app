@@ -16,13 +16,19 @@ export const NotesCard = ({ noteData }) => {
   };
   return (
     <div className="notes-card-container">
-      <span>{noteData.title}</span>
-      <span>{noteData.body}</span>
+      <span className="card-title">{noteData.title}</span>
+      <span className="card-date">{noteData.createdAt}</span>
+      <span className="card-body">{noteData.body}</span>
       <div className="notes-card-bottom">
-        <button type="" onClick={deleteHandler}>
+        <button type="" className="delete-card-button" onClick={deleteHandler}>
           delete
         </button>
-        <button type="" onClick={archiveUpdateHandler}>
+        <button
+          type=""
+          id="archive"
+          className="archive-card-button"
+          onClick={archiveUpdateHandler}
+        >
           {!noteData.archived ? "archive" : "un-archive"}
         </button>
       </div>

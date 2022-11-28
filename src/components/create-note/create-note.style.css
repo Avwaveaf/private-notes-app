@@ -1,5 +1,5 @@
 .create-new-note-form-container {
-  width: 70%;
+  width: 50%;
   margin: 30px auto;
   padding: 30px;
   border: 2px solid gray;
@@ -9,4 +9,54 @@
 .notes-input {
   display: flex;
   flex-direction: column;
+}
+.title-input-container {
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 2px;
+}
+.body-input-container {
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.body-input-container textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.title-input-container input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.over-limit {
+  border: 2px solid red;
+}
+.submit-button-container {
+  display: flex;
+  background-color: black;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+  width: 70%;
+  margin: auto;
+  padding: 5px;
+  transition: 1s;
+  cursor: pointer;
+}
+.submit-button-container:hover {
+  padding: 10px;
+}
+.submit-button-container button {
+  outline: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: black;
 }

@@ -1,10 +1,49 @@
 .notes-card-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   flex: 1 0 21%;
   border: 2px solid black;
   border-radius: 25px;
   margin: 10px;
   padding: 10px;
+  transition: 1s;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.notes-card-container:hover {
+  transform: translateY(-10px);
+}
+.card-date {
+  color: gray;
+}
+
+.notes-card-bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+.notes-card-bottom button {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: 1s;
+}
+.delete-card-button {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.delete-card-button:hover {
+  background-color: red;
+}
+.archive-card-button {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.archive-card-button:hover {
+  background-color: yellow;
 }

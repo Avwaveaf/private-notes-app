@@ -1,0 +1,31 @@
+.top-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -350px;
+  width: 100%;
+  transition: 1s;
+  margin-bottom: 50px;
+  z-index: 1;
+}
+.showNav {
+  transform: translateY(350px);
+}
+.nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding-top: 20px;
+  position: relative;
+}
+.navbar-name {
+  background-color: black;
+  color: white;
+  margin: auto;
+  width: 25%;
+  font-size: 30px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 20px;
+  cursor: pointer;
+}

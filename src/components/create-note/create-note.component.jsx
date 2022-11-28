@@ -5,13 +5,28 @@ import "./create-note.style.css";
 export const CreateNote = () => {
   const [addNote, setAddNote] = useState({ title: "", body: "" });
   const { filteredNotes, setNewNote } = useContext(NotesContext);
+  const [limit, setLimit] = useState(false);
+  const [charCount, setCharCount] = useState(0);
   const titleChangeHandler = (event) => {
-    setAddNote(() => {
-      return {
-        ...addNote,
-        title: event.target.value,
-      };
-    });
+    if (event.target.value.length <= 30) {
+      setLimit(false);
+
+      setCharCount(event.target.value.length);
+      setAddNote(() => {
+        return {
+          ...addNote,
+          title: event.target.value,
+        };
+      });
+    } else {
+      setLimit(true);
+      setAddNote(() => {
+        return {
+          ...addNote,
+          title: addNote.title,
+        };
+      });
+    }
   };
   const bodyChangeHandler = (event) => {
     setAddNote(() => {
@@ -23,13 +38,16 @@ export const CreateNote = () => {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
+    const date = new Date();
+    const currDate =
+      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
     setNewNote([
       ...filteredNotes,
       {
         id: filteredNotes.length + 1,
         title: addNote.title,
         body: addNote.body,
-        createdAt: new Date(),
+        createdAt: currDate,
         archived: false,
       },
     ]);
@@ -43,23 +61,30 @@ export const CreateNote = () => {
           onSubmitHandler(event);
         }}
       >
-        <input
-          type="text"
-          placeholder="title"
-          value={addNote.user}
-          onChange={(event) => {
-            titleChangeHandler(event);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="body"
-          value={addNote.tag}
-          onChange={(event) => {
-            bodyChangeHandler(event);
-          }}
-        />
-        <button type="submit">Add New Note</button>
+        <span>Character limit :{30 - charCount} </span>
+        <div className={`title-input-container ${limit ? "over-limit" : ""}`}>
+          <input
+            type="text"
+            placeholder="set your note title here..."
+            value={addNote.title}
+            onChange={(event) => {
+              titleChangeHandler(event);
+            }}
+          />
+        </div>
+        <div className="body-input-container">
+          <textarea
+            type="text"
+            placeholder="write your note content here..."
+            value={addNote.body}
+            onChange={(event) => {
+              bodyChangeHandler(event);
+            }}
+          />
+        </div>
+        <div className="submit-button-container">
+          <button type="submit">Add New Note</button>
+        </div>
       </form>
     </div>
   );
