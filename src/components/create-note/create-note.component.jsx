@@ -61,7 +61,7 @@ export const CreateNote = () => {
           onSubmitHandler(event);
         }}
       >
-        <span>Character limit :{30 - charCount} </span>
+        <span>Character limit :{50 - charCount} </span>
         <div className={`title-input-container ${limit ? "over-limit" : ""}`}>
           <input
             type="text"
