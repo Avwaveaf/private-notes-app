@@ -1,0 +1,10 @@
+.notes-card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1 0 21%;
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 10px;
+}
