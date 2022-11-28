@@ -5,11 +5,11 @@ import { PrivateNotesApp } from "./components/private-notes-app/private-notes-ap
 import { SearchNotes } from "./components/search-notes/search-notes.component";
 
 function App() {
-  const { notesData } = useContext(NotesContext);
+  const { filteredNotes } = useContext(NotesContext);
   return (
     <div className="App">
       <SearchNotes />
-      <PrivateNotesApp data={notesData} />
+      <PrivateNotesApp data={filteredNotes} />
     </div>
   );
 }
