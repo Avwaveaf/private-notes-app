@@ -5,13 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { NotesContextProvider } from "./components/contexts/notes-data.context";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <NotesContextProvider>
-      <App />
-    </NotesContextProvider>
+    <BrowserRouter>
+      <NotesContextProvider>
+        <App />
+      </NotesContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

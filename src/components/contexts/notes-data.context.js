@@ -8,12 +8,15 @@ export const NotesContext = createContext({
   setFilteredNotes: () => {},
   newNote: [],
   setNewNote: () => {},
+  selectedNote: {},
+  setSelectedNote: () => {},
 });
 
 export const NotesContextProvider = ({ children }) => {
   const [notesData, setNotesData] = useState(initialData);
   const [newNote, setNewNote] = useState(notesData);
   const [filteredNotes, setFilteredNotes] = useState(newNote);
+  const [selectedNote, setSelectedNote] = useState({});
 
   useEffect(() => {
     setNotesData(newNote);
@@ -30,7 +33,8 @@ export const NotesContextProvider = ({ children }) => {
     filteredNotes,
     newNote,
     setNewNote,
-
+    selectedNote,
+    setSelectedNote,
   };
   return (
     <NotesContext.Provider value={value}>{children}</NotesContext.Provider>

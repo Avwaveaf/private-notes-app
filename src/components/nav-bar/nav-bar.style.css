@@ -29,3 +29,15 @@
   padding: 20px;
   cursor: pointer;
 }
+.navigation-container {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  width: 300px;
+
+  margin: 10px auto;
+}
+.navigation-container .navigate {
+  text-decoration: none;
+  color: black;
+}

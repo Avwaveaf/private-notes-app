@@ -1,5 +1,6 @@
 import { NotesCard } from "../notes-card/notes-card.component";
 import "./private-notes-app.style.css";
+import PropTypes from "prop-types";
 export const PrivateNotesApp = ({ data }) => {
   return (
     <div className="notes-container">
@@ -8,7 +9,7 @@ export const PrivateNotesApp = ({ data }) => {
         <div className="notes-child-container">
           {data.map((e) => {
             if (!e.archived) {
-              return <NotesCard noteData={e} key={e.id} />;
+              return <NotesCard noteData={e} isOnDetail={false} key={e.id} />;
             }
             return "";
           })}
@@ -22,7 +23,7 @@ export const PrivateNotesApp = ({ data }) => {
         <div className="notes-child-container">
           {data.map((e) => {
             if (e.archived) {
-              return <NotesCard noteData={e} key={e.id} />;
+              return <NotesCard noteData={e} isOnDetail={false} key={e.id} />;
             }
             return "";
           })}
@@ -32,4 +33,7 @@ export const PrivateNotesApp = ({ data }) => {
       )}
     </div>
   );
+};
+PrivateNotesApp.propTypes = {
+  data: PropTypes.array.isRequired,
 };

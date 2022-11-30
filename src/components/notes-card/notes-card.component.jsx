@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { NotesContext } from "../contexts/notes-data.context";
+import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
+
 import "./notes-card.style.css";
-export const NotesCard = ({ noteData }) => {
-  const { filteredNotes, setNewNote } = useContext(NotesContext);
+export const NotesCard = ({ noteData, isOnDetail }) => {
+  const { filteredNotes, setNewNote, setSelectedNote } =
+    useContext(NotesContext);
   const datas = filteredNotes;
   const deleteHandler = () => {
     const index = filteredNotes.findIndex((e) => e.id === noteData.id);
@@ -14,6 +18,7 @@ export const NotesCard = ({ noteData }) => {
     datas.splice(index, 1, { ...noteData, archived: !noteData.archived });
     setNewNote(datas.map((e) => e));
   };
+
   return (
     <div className="notes-card-container">
       <span className="card-title">{noteData.title}</span>
@@ -31,7 +36,24 @@ export const NotesCard = ({ noteData }) => {
         >
           {!noteData.archived ? "archive" : "un-archive"}
         </button>
+        {!isOnDetail ? (
+          <button
+            type=""
+            onClick={() => {
+              setSelectedNote(noteData);
+            }}
+          >
+            <Link to="note-detail">see the detail</Link>
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
+};
+
+NotesCard.propTypes = {
+  noteData: PropTypes.object,
+  isOnDetail: PropTypes.bool,
 };
