@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./App.css";
 import { NotesContext } from "./components/contexts/notes-data.context";
 import { PrivateNotesApp } from "./components/private-notes-app/private-notes-app.component";
@@ -8,7 +8,7 @@ import { NotesDetail } from "./Routes/notes-detail/notes-detail.component";
 import { PageNotFound } from "./Routes/page-notfound/page-notfound.component";
 function App() {
   const { filteredNotes } = useContext(NotesContext);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const searchNote = searchParams.get("search") || "";
 
   const filterNotesUrl = filteredNotes.filter((note) => {
