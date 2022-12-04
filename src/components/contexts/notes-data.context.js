@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { initialData } from "../../utils";
+import { getActiveNotes } from "../../utils/api";
 
 export const NotesContext = createContext({
   notesData: [],
@@ -17,6 +18,14 @@ export const NotesContextProvider = ({ children }) => {
   const [newNote, setNewNote] = useState(notesData);
   const [filteredNotes, setFilteredNotes] = useState(newNote);
   const [selectedNote, setSelectedNote] = useState({});
+
+  const getNotesData = async () => {
+    const { data } = await getActiveNotes();
+    console.log(data);
+  };
+  useEffect(() => {
+    getNotesData();
+  }, []);
 
   useEffect(() => {
     setNotesData(newNote);
